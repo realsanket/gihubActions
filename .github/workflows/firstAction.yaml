@@ -24,4 +24,25 @@ jobs:
              print("Hello World")
         shell: python
 
+  run-shell-command-3:
+    runs-on: ubuntu-latest
+    needs: ["run-shell-command"]
+    steps:
+      - name: print hello world
+        run : echo world
+      - name: second hello world with multiline
+        run: |
+             print("Hello World")
+        shell: python
+  run-shell-command-4:
+    runs-on: ubuntu-latest
+    needs: ["run-shell-command-3"]
+    steps:
+      - name: print hello world
+        run : echo world
+      - name: second hello world with multiline
+        run: |
+             print("Hello World")
+        shell: python        
+
 
