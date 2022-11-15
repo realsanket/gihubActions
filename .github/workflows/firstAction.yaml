@@ -13,4 +13,16 @@ jobs:
             echo world
             echo "sasa"
             python --version
+  run-shell-command-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print hello world
+        run : echo world
+      - name: second hello world with multiline
+        run: |
+            echo hello
+            echo world
+            echo "sasa"
+            python --version
+
 
