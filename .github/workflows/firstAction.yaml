@@ -20,9 +20,7 @@ jobs:
         run : echo world
       - name: second hello world with multiline
         run: |
-            echo hello
-            echo world
-            echo "sasa"
-            python --version
+             print("Hello World")
+        shell: python
 
 
