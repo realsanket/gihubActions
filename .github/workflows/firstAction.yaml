@@ -53,7 +53,7 @@ jobs:
             pwd
             ls
       - name: checkout
-        uses: actions/checkout
+        uses: actions/checkout@v2.5.0
 
       - name: list files 2
         run: | 
