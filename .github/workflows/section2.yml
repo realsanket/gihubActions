@@ -11,11 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: test-step
-        run: ls
+        run: |
+            ls
+            echo ${{ github.event.action }}
+            echo ${{ github.event_name }}
 
   second-jobs:
     runs-on: ubuntu-latest
     steps: 
-      - name: test-step
+      - name: test-step from second jobs
         run: ls
         
