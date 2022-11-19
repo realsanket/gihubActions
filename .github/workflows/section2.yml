@@ -7,7 +7,7 @@ on:
       - "opened"
 jobs:
   first-jobs:
-    if: github.event.action == "closed"
+    if: ${{ github.event.action }} == "closed"
     runs-on: ubuntu-latest
     steps: 
       - name: test-step
@@ -15,6 +15,7 @@ jobs:
             ls
             echo ${{ github.event.action }}
             echo ${{ github.event_name }}
+            ${{ github.event.action }} == "closed"
 
   second-jobs:
     runs-on: ubuntu-latest
