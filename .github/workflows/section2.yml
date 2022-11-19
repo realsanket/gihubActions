@@ -15,7 +15,7 @@ jobs:
             ls
             echo ${{ github.event.action }}
             echo ${{ github.event_name }}
-            ${{ github.event.action }} == "closed"
+            [[ ${{ github.event.action }} == "closed" ]] && echo "Equal" || echo "Not equal"
 
   second-jobs:
     runs-on: ubuntu-latest
