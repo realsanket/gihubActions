@@ -32,7 +32,7 @@ jobs:
       - name: test-step from second jobs
         run: ls
       - name : print-github
-        run: echo {{github}}
+        run: echo ${{github}}
       - name : print-github-from-env-without-curl
         run: echo $GITHUBCON
       - name : print-github-from-env-with-curl

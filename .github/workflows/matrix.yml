@@ -1,0 +1,13 @@
+
+name: matrix
+on: [push]
+jobs:
+  first-job:
+    runs-on: "ubuntu-latest"
+    strategy: 
+      matrix:
+        numbers: [1,2,3,4,5,6,7,8,9,10]
+      max-parallel: 3
+    steps:
+      - name: check-if-even
+        run: echo ${{matrix.numbers}}
