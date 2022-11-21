@@ -8,10 +8,13 @@ jobs:
       matrix:
         numbers: [1,2,3,4]
       max-parallel: 3
+    env:
+      checkIfEven: matrix.numbers % 2 ==0
     steps:
+      - name: check-if-odd
+        run: echo $checkIfEven
       - name: check-if-even
         run: echo ${{matrix.numbers}}
-        if: ${{matrix.numbers % 2 ==0}} 
       - name: check-if-odd
         run: echo ${{matrix.numbers}}
-        if: ${{matrix.numbers}}%2!=0
+
