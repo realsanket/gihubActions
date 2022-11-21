@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: check-if-even
         run: echo ${{matrix.numbers}}
-        if: matrix.numbers%2==0
+        if: $matrix.numbers%2 == 0
       # - name: check-if-odd
       #   run: echo ${{matrix.numbers}}
       #   if: ${{matrix.numbers}}%2!=0
