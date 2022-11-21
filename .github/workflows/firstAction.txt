@@ -1,9 +1,12 @@
 # yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 name: Our First Github Action 
 on: [push]
+env: 
+  sas: "sdfds"
 #Normal Job With Nothing 
 jobs:
   run-shell-command:
+    
     runs-on: ubuntu-latest
     steps:
       - name: print hello world

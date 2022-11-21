@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+
+name: our action Pipeline
+on: [push]
+env:
+  GITHUBCON: ${{ toJson(github) }}
+  # pull_request:
+  #   branches:
+  #     - master
+  #   tags: 
+  #     -   
+  #   types:
+  #     - "closed"
+  #     - "opened"
+
+jobs:
+#How to filter jobs on Event Actions
+  first-jobs:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'closed'
+    steps: 
+      - name: test-step
+        run: |
+            ls
+            echo ${{ github.event.action }}
+            echo ${{ github.event_name }}
+            [[ ${{ github.event.action }} == "closed" ]] && echo "Equal" || echo "Not equal"
+
+  second-jobs:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: test-step from second jobs
+        run: ls
+      - name : print-github
+        run: echo ${{github}}
+      - name : print-github-from-env-without-curl
+        run: echo $GITHUBCON
+      - name : print-github-from-env-with-curl
+        run: echo ${GITHUBCON}
+
+        

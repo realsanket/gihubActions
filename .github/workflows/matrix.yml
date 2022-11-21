@@ -1,0 +1,20 @@
+
+name: matrix
+on: [push]
+jobs:
+  first-job:
+    runs-on: "ubuntu-latest"
+    strategy: 
+      matrix:
+        numbers: [1,2,3,4]
+      max-parallel: 3
+    env:
+      checkIfEven: ${{matrix.numbers % 2 ==0}}
+    steps:
+      - name: check-if-odd
+        run: echo $checkIfEven
+      - name: check-if-even
+        run: echo ${{matrix.numbers}}
+      - name: check-if-odd
+        run: echo ${{matrix.numbers}}
+
